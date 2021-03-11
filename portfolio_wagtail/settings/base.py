@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'api',
     'about',
+    'work',
     'graphene_django',
 
     'wagtail.contrib.forms',
