@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'home',
     'search',
     'api',
+    'contact',
     'about',
     'work',
     'graphene_django',
