@@ -8,7 +8,6 @@ from modelcluster.fields import ParentalKey
 # Create your models here.
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField, StreamField
-from work import blocks
 from wagtail.core import blocks as work_blocks
 from wagtail.search import index
 
@@ -19,19 +18,24 @@ class WorkIndexPage(Page):
 class FullStackPage(Page):
     description = RichTextField(blank=True)
 
+    def child_pages(self):
+        return TechnologyPage.objects.all().child_of(self)
+
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
     ]
 
+    subpage_types = ['work.TechnologyPage']
+
 class TechnologyDetailOrderable(Orderable):
     page = ParentalKey("work.TechnologyPage", related_name="technologypage")
-    title = models.CharField(max_length=255)
+    software_title = models.CharField(max_length=255)
     description = RichTextField(blank=True)
 
 class TechnologyPage(Page):
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
-            InlinePanel('technologypage'),
+            InlinePanel('technologypage', label="Technology Details"),
         ], heading="Technology or Framework details"),
     ]
