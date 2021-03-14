@@ -12,9 +12,6 @@ from wagtail.admin.edit_handlers import (FieldPanel, MultiFieldPanel, InlinePane
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 
-class HomeIndexPage(Page):
-    pass
-
 class HomeSelectionOrderable(Orderable):
     page = ParentalKey("home.HomePage", related_name="homepage")
     selection_title = models.CharField(max_length=255)

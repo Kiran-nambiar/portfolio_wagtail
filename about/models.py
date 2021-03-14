@@ -14,9 +14,6 @@ from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.search import index
 
 
-class AboutIndexPage(Page):
-    pass
-
 class DeveloperLogo(Orderable):
     page = ParentalKey("about.AboutPage", related_name="aboutpage")
     development_logo = models.ForeignKey(

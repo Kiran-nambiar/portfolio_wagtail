@@ -11,10 +11,6 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks as work_blocks
 from wagtail.search import index
 
-
-class WorkIndexPage(Page):
-    pass
-
 class FullStackPage(Page):
     description = RichTextField(blank=True)
 

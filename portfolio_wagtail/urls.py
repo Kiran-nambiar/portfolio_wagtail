@@ -12,7 +12,7 @@ from search import views as search_views
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
-    url(r'^graphiql', csrf_exempt(GraphQLView.as_view(graphiql=True, pretty=True))),
+    path('graphiql/', csrf_exempt(GraphQLView.as_view(graphiql=True, pretty=True))),
     path('admin/', include(wagtailadmin_urls)),
     path('documents/', include(wagtaildocs_urls)),
 
