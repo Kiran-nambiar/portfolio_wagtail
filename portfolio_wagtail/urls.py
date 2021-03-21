@@ -3,6 +3,7 @@ from django.urls import include, path
 from django.contrib import admin
 from django.conf.urls import url
 
+from contact.urls import url as contact_url
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -14,6 +15,7 @@ urlpatterns = [
     path('django-admin/', admin.site.urls),
     path('graphiql/', csrf_exempt(GraphQLView.as_view(graphiql=True, pretty=True))),
     path('admin/', include(wagtailadmin_urls)),
+    path('contact/', include('contact.urls')),
     path('documents/', include(wagtaildocs_urls)),
 
     path('search/', search_views.search, name='search'),

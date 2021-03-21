@@ -11,11 +11,8 @@ from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core import blocks as work_blocks
 from wagtail.search import index
 
-class FullStackPage(Page):
+class WorkPage(Page):
     description = RichTextField(blank=True)
-
-    def child_pages(self):
-        return TechnologyPage.objects.all().child_of(self)
 
     content_panels = Page.content_panels + [
         FieldPanel('description', classname="full"),
